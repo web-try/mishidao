@@ -17,11 +17,11 @@ export default class DataManager extends singleton {
         {type: ItemTypeEnum.mail, status: ItemStatusEnum.Scenc}
     ]
 
-    get item() {
+    get items() {
         return this._item
     }
 
-    set(newData) {
+    set items(newData) {
         this._item = newData
     }
 }
