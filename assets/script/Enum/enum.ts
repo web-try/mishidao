@@ -11,9 +11,9 @@ export enum SceneEnum {
  */
 export enum ItemStatusEnum {
     /**
-     * @Scenc 在场景
+     * @Scene 在场景
      */
-    Scenc = "Scenc",
+    Scene = "Scene",
     /**
      * @Incentory 在背包
      */
@@ -27,4 +27,8 @@ export enum ItemStatusEnum {
 export enum ItemTypeEnum {
     key = "key",
     mail = "mail"
+}
+
+export enum EventEnum {
+    Render = "Render"
 }

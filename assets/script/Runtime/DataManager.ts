@@ -1,5 +1,6 @@
 import singleton from "../Base/singleton";
-import { ItemStatusEnum, ItemTypeEnum } from "../Enum/enum";
+import { EventEnum, ItemStatusEnum, ItemTypeEnum } from "../Enum/enum";
+import EventManager from "./EventManager";
 
 interface IItem {
     status: ItemStatusEnum
@@ -13,8 +14,8 @@ export default class DataManager extends singleton {
     }
 
     private _item: Array<IItem> = [
-        {type: ItemTypeEnum.key, status: ItemStatusEnum.Scenc},
-        {type: ItemTypeEnum.mail, status: ItemStatusEnum.Scenc}
+        {type: ItemTypeEnum.key, status: ItemStatusEnum.Scene},
+        {type: ItemTypeEnum.mail, status: ItemStatusEnum.Scene}
     ]
 
     get items() {
@@ -23,5 +24,6 @@ export default class DataManager extends singleton {
 
     set items(newData) {
         this._item = newData
+        EventManager.Instance.emit(EventEnum.Render)
     }
 }
