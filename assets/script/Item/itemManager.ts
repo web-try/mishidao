@@ -50,16 +50,16 @@ export class itemManager extends RenderManager {
      */
     render(){
         const status = DataManager.Insatnce.items.find(i => i.type === this.type)?.status
-        const spriteCompnent = this.getComponent(Sprite)
+        const spriteComponent = this.getComponent(Sprite)
 
         switch(status) {
             case ItemStatusEnum.Scene:
                 this.node.active = true
-                spriteCompnent.spriteFrame = this.sceneSF
+                spriteComponent.spriteFrame = this.sceneSF
                 break;
             case ItemStatusEnum.Incentory:
                 this.node.active = true
-                spriteCompnent.spriteFrame = this.Incentory
+                spriteComponent.spriteFrame = this.Incentory
                 break;
             case ItemStatusEnum.Disable:
                 this.node.active = false
