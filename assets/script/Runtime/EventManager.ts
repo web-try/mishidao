@@ -20,13 +20,13 @@ export default class EventManager extends singleton {
     }
   }
 
-  off(eventName: string, func: Function) {
+  off(eventName: string, func: Function, ctx) {
     if (this.eventDic.has(eventName)) {
       /**
        * findIndex找和传入的func同名的函数
        * splice一个删除索引位置的函数
        */
-      const index = this.eventDic.get(eventName).findIndex(i => i.func === func)
+      const index = this.eventDic.get(eventName).findIndex(i => i.func === func && ctx === i.ctx)
       index > -1 && this.eventDic.get(eventName).splice(index, 1)
     }
   }

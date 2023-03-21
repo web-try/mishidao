@@ -6,8 +6,8 @@ const { ccclass, property } = _decorator;
  
 @ccclass('KeyitemManager')
 export class KeyitemManager extends itemManager {
-   
-    status: ItemStatusEnum
+
+    laber = "信箱钥匙"
 
     type: ItemTypeEnum = ItemTypeEnum.key
 }

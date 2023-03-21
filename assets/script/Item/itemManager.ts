@@ -1,5 +1,5 @@
 
-import { _decorator, Component, Node, Sprite, SpriteFrame } from 'cc';
+import { _decorator, Component, Label, Node, Sprite, SpriteFrame } from 'cc';
 import { ItemStatusEnum, ItemTypeEnum } from '../Enum/enum';
 import DataManager from '../Runtime/DataManager';
 import { RenderManager } from '../Base/RenderManager';
@@ -8,7 +8,9 @@ const { ccclass, property } = _decorator;
 @ccclass('itemManager')
 export class itemManager extends RenderManager {
 
-    status: ItemStatusEnum
+    laber = "物品"
+
+    // status: ItemStatusEnum
 
     type: ItemTypeEnum
 
@@ -18,9 +20,8 @@ export class itemManager extends RenderManager {
     @property(SpriteFrame)
     Incentory: SpriteFrame = null
 
-    onLoad() {
-        super.onLoad()
-        console.log(DataManager.Insatnce.items[0])
+    start() {
+        super.start()
         this.node.on(Node.EventType.TOUCH_END, this.touch, this)
     }
 

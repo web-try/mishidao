@@ -7,7 +7,7 @@ const { ccclass, property } = _decorator;
 @ccclass('MailitemManager')
 export class MailitemManager extends itemManager {
    
-    status: ItemStatusEnum
+    laber = "邮票"
 
     type: ItemTypeEnum = ItemTypeEnum.mail
 }
