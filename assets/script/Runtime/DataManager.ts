@@ -1,5 +1,5 @@
 import singleton from "../Base/singleton";
-import { EventEnum, ItemStatusEnum, ItemTypeEnum } from "../Enum/enum";
+import { EventEnum, ItemStatusEnum, ItemTypeEnum, TriggerStatusEnum } from "../Enum/enum";
 import EventManager from "./EventManager";
 
 interface IItem {
@@ -17,10 +17,29 @@ export default class DataManager extends singleton {
 
     private _isSelect: boolean = false
 
+    private _mailboxStatus = TriggerStatusEnum.Panding
+
+    private _grandmaStatus = TriggerStatusEnum.Panding
+
+    private _dialogindex: number = -1
+
+
     private _item: Array<IItem> = [
         {type: ItemTypeEnum.key, status: ItemStatusEnum.Scene},
-        {type: ItemTypeEnum.mail, status: ItemStatusEnum.Incentory}
+        {type: ItemTypeEnum.mail, status: ItemStatusEnum.Disable}
     ]
+
+    get dialogindex() {
+        return this._dialogindex
+    }
+
+    get grandmaStatus() {
+        return this._grandmaStatus
+    }
+
+    get mailboxStatus() {
+        return this._mailboxStatus
+    }
 
     get curItemType() {
         return this._curItemType
@@ -33,6 +52,22 @@ export default class DataManager extends singleton {
     get items() {
         return this._item
     }
+
+    set dialogindex(newData) {
+        this._dialogindex = newData
+        this.rander()
+    }
+
+    set grandmaStatus(newData) {
+        this._grandmaStatus = newData
+        this.rander()
+    }
+
+    set mailboxStatus(newData) {
+        this._mailboxStatus = newData
+        this.rander()
+    }
+
 
     set isSelect(newData) {
         this._isSelect = newData

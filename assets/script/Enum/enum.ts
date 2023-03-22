@@ -30,5 +30,24 @@ export enum ItemTypeEnum {
 }
 
 export enum EventEnum {
+    /**
+     * 事件类型,渲染
+     */
     Render = "Render"
+}
+
+export enum TriggerTypeEnum {
+    MailBox = "MailBox",
+    grandma = "grandma"
+}
+
+export enum TriggerStatusEnum {
+    /**
+     * 关闭状态
+     */
+    Panding = "Panding",
+    /**
+     * 打开状态
+     */
+    resolove = "resolove"
 }
